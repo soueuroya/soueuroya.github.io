@@ -138,8 +138,8 @@ html_template = """<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Boldrin | Career History</title>
     
-    <!-- Unified CSS -->
     <link rel="stylesheet" href="css/main.css?v=2">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <!-- FontAwesome for icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
