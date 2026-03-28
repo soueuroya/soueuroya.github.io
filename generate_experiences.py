@@ -1,0 +1,222 @@
+import json
+
+experiences = [
+    {
+        "role": "Lead Unity Developer",
+        "company": "Anime Universe",
+        "date": "Feb 2026 - Present",
+        "description": "Leading the Unity development division, contributing to the technical foundation of the platform from early-stage architecture through production. I coordinate the Unity team and collaborate closely with product, design, and art departments.",
+        "bullets": ["Flip Frame Ninjas: Leading development of an endless runner, driving design, system architecture, gameplay implementation, and backend services."],
+        "tags": ["Unity3D", "Leadership", "Architecture"]
+    },
+    {
+        "role": "Founder & Tech Leader",
+        "company": "Boldreams",
+        "date": "Dec 2024 - Present",
+        "description": "Founder of Boldreams, an indie-focused game development studio providing full-cycle development and technical consulting for international clients. The studio specializes in scalable multiplayer systems, transactional gaming platforms, and service-based game development.",
+        "bullets": ["Swipe Kings: Skill-based competitive mobile game featuring real-time matchmaking and progression systems designed for scalable multiplayer environments."],
+        "tags": ["Start-up Leadership", "Unity3D", "Consulting"]
+    },
+    {
+        "role": "Lead Unity Developer",
+        "company": "Suprema Gaming",
+        "date": "Nov 2024 - Feb 2026",
+        "description": "Architected and delivered large-scale multiplayer 2D games using Unity and C#. Integrated real-time networking with Colyseus and Pomelo, optimizing synchronization for thousands of concurrent users.",
+        "bullets": [
+            "Rodeo: Large-scale multiplayer betting game where thousands of players wager on AI-driven poker duels.",
+            "Poker App: Modular multiplayer poker platform for real-time matches, custom clubs, and table creation, with union systems connecting global players."
+        ],
+        "tags": ["Unity3D", "Multiplayer Systems", "Colyseus", "Pomelo"]
+    },
+    {
+        "role": "Lead Unity Developer",
+        "company": "ZeMind Studios",
+        "date": "Nov 2022 - Mar 2025",
+        "description": "Led cross-functional development team in creating mobile and console applications, driving projects from concept through delivery. Designed and implemented gameplay systems and mechanics in Unity (C#) across iOS, Android, and console platforms.",
+        "bullets": [
+            "Courting Glory: Free-to-play champion-based deck builder fighting game utilizing Web3 technology.",
+            "Rawmen: A radical 2-8 player multiplayer third-person arena shooter for Xbox, PlayStation, Switch and Steam.",
+            "Hoame: A 360 mobile mindfulness application offering elevated on-demand experiences."
+        ],
+        "tags": ["Unity3D", "Cross-Platform", "Web3", "Consoles"]
+    },
+    {
+        "role": "Unity VR Developer",
+        "company": "Luxsonic Technologies Inc.",
+        "date": "Aug 2021 - Nov 2022",
+        "description": "Developed Unity-based VR training and assessment systems for medical personnel, emphasizing clinical realism, VR UX best practices, and interaction design. Delivered cross-platform VR solutions using OpenXR and WaveXR.",
+        "bullets": [
+            "Microbiology: Full lab simulation including PPE, sterilization, pathogen handling.",
+            "VAPOC: Emergency responder simulation featuring dynamic patient interactions.",
+            "Blood Transfusion: Complete transfusion process simulator with procedural verification."
+        ],
+        "tags": ["Unity3D", "VR UX", "OpenXR", "WaveXR"]
+    },
+    {
+        "role": "Unity game programing teacher",
+        "company": "Halton STEM Club",
+        "date": "Jun 2021 - Jun 2022",
+        "description": "Planned and organized semi-private classes for Unity3D game development and C# programming, catering to students from grades 6 to 10. Designed course materials and activities to enhance understanding of 3D animation and game design principles.",
+        "bullets": [],
+        "tags": ["C#", "Unity3D", "Teaching"]
+    },
+    {
+        "role": "Unity game programing teacher",
+        "company": "Wells Academy",
+        "date": "Mar 2021 - Feb 2022",
+        "description": "Planned and organized semi-private classes for Unity3D game development and C# programming, catering to students from grades 6 to 10. Facilitated hands-on learning experiences, promoting collaboration and creativity.",
+        "bullets": [],
+        "tags": ["Game Development", "Unity3D", "Mentorship"]
+    },
+    {
+        "role": "Unity game programing teacher",
+        "company": "Thinnox 360",
+        "date": "Jul 2018 - Nov 2020",
+        "description": "Planned and instructed Unity3D game development, C# programming, and 3D animation classes for groups of up to 12 students. Developed and implemented curriculum focused on electronic circuits and game design.",
+        "bullets": [],
+        "tags": ["Game Development", "Unity3D", "Curriculum Design"]
+    },
+    {
+        "role": "System Analyst Developer",
+        "company": "Programmers",
+        "date": "May 2016 - May 2017",
+        "description": "Developed and maintained front-end modules for automated medical survey systems, ensuring code quality and reliability. Managed database architecture, ensuring efficient data handling and system functionality.",
+        "bullets": [],
+        "tags": ["Software Development", "C#", "System Architecture"]
+    },
+    {
+        "role": "Database Consultant",
+        "company": "GRJ Soluções",
+        "date": "Mar 2016 - Jan 2017",
+        "description": "First point of contact for Database improvements and management. Implementing and fixing features in several marketing and business software using WAMP.",
+        "bullets": [],
+        "tags": ["Problem Solving", "C#", "Database Architecture"]
+    },
+    {
+        "role": "System Analyst Developer",
+        "company": "Hewlett-Packard",
+        "date": "Jul 2015 - Jul 2016",
+        "description": "Managed and monitored the performance of five critical systems, ensuring operational functionality and reliability. Conducted comprehensive testing and maintenance of database management systems and bank applications.",
+        "bullets": [],
+        "tags": ["System Analysis", "C#", "Enterprise Systems"]
+    },
+    {
+        "role": "System Analyst Developer",
+        "company": "CAST",
+        "date": "Nov 2014 - Jul 2015",
+        "description": "Developing several governmental and federal applications and web pages using C# MVC5.",
+        "bullets": [],
+        "tags": ["Federal Applications", "C#", "MVC5"]
+    },
+    {
+        "role": "Full Stack Developer",
+        "company": "Líder Telecom Ltda.",
+        "date": "Apr 2013 - Nov 2014",
+        "description": "Led a team in various internal projects for the company, improving the quality of the calls answered by the telecom operators and the overall work quality of employees. Released 5 applications used internally by 3000+ employees.",
+        "bullets": [],
+        "tags": ["C#", "HTML", "Full Stack", "SQL/MYSQL"]
+    }
+]
+
+html_template = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Boldrin | Career History</title>
+    
+    <!-- Unified CSS -->
+    <link rel="stylesheet" href="css/main.css?v=2">
+    
+    <!-- FontAwesome for icons -->
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">Daniel <span class="highlight">Boldrin</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="height: 100px;"></div> <!-- Spacer for fixed nav -->
+
+    <!-- EXPERIENCE SECTION -->
+    <section class="section" id="experience">
+        <div class="container">
+            <h2 class="fade-up">Full Career History</h2>
+            <p class="fade-up" style="margin-bottom: 3rem; color: #94a3b8;">14+ years of professional development experience across engineering, systems architecture, and leadership.</p>
+            
+            <div class="timeline">
+{TIMELINE_ITEMS}
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links fade-up">
+                <a href="mailto:daniel_cboldrin@hotmail.com" class="social-link" title="Email me" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/daniel-boldrin/" target="_blank" class="social-link" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/soueuroya" target="_blank" class="social-link" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://danielboldrin.itch.io/" target="_blank" class="social-link" title="Itch.io" aria-label="Itch.io"><i class="fab fa-itch-io"></i></a>
+            </div>
+            <p class="copyright fade-up delay-1">&copy; 2026 Daniel Boldrin. Built with Unity, C#, and a passion for interactive systems.</p>
+        </div>
+    </footer>
+
+    <!-- unified script -->
+    <script src="js/main.js?v=2"></script>
+</body>
+</html>"""
+
+timeline_html = ""
+for exp in experiences:
+    timeline_html += f'''
+                <!-- {exp['company']} -->
+                <div class="timeline-item fade-up">
+                    <div class="timeline-header">
+                        <div>
+                            <h3 class="timeline-role">{exp['role']}</h3>
+                            <span class="timeline-company">{exp['company']}</span>
+                        </div>
+                        <span class="timeline-date">{exp['date']}</span>
+                    </div>
+                    <div class="timeline-content">
+                        <p>{exp['description']}</p>'''
+    
+    if exp['bullets']:
+        timeline_html += '''
+                        <ul>'''
+        for b in exp['bullets']:
+            bold_part = b.split(':')[0] + ':' if ':' in b else b
+            desc_part = b[len(bold_part):] if ':' in b else ''
+            timeline_html += f'''
+                            <li><strong>{bold_part}</strong>{desc_part}</li>'''
+        timeline_html += '''
+                        </ul>'''
+                        
+    if exp['tags']:
+        timeline_html += '''
+                        <div class="tags">'''
+        for t in exp['tags']:
+            timeline_html += f'''
+                            <span class="tag">{t}</span>'''
+        timeline_html += '''
+                        </div>'''
+
+    timeline_html += '''
+                    </div>
+                </div>'''
+
+final_html = html_template.replace("{TIMELINE_ITEMS}", timeline_html)
+
+with open("experiences.html", "w", encoding="utf-8") as f:
+    f.write(final_html)
+    
+print("experiences.html successfully built!")
