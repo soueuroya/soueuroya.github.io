@@ -117,6 +117,9 @@ html_template = """<!DOCTYPE html>
     <nav class="navbar">
         <div class="navbar-container">
             <a href="index.html" class="logo">Daniel <span class="highlight">Boldrin</span></a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to Home</a></li>
             </ul>
@@ -168,7 +171,7 @@ for item in education_items:
     tags_html = ""
     for t in item.get("tags", []):
         tag_icon_src = tag_icons.get(t)
-        tag_img = f'<img src="Images/BW/{tag_icon_src}" alt="{t}" style="height: 14px; margin-right: 6px; filter: brightness(0) invert(1);">' if tag_icon_src else ''
+        tag_img = f'<img src="Images/BW/{tag_icon_src}" alt="{t}" style="height: 14px; margin-right: 6px; filter: grayscale(1) invert(1) contrast(500%); mix-blend-mode: screen;">' if tag_icon_src else ''
         tags_html += f'<span class="tag" style="display: inline-flex; align-items: center;">{tag_img}{t}</span>'
     
     timeline_html += f'''

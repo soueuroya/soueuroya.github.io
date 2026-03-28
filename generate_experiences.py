@@ -137,6 +137,9 @@ html_template = """<!DOCTYPE html>
     <nav class="navbar">
         <div class="navbar-container">
             <a href="index.html" class="logo">Daniel <span class="highlight">Boldrin</span></a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to Home</a></li>
             </ul>
@@ -176,6 +179,9 @@ html_template = """<!DOCTYPE html>
 </html>"""
 
 company_logos = {
+    "Anime Universe": "AnimeUniverse Logo Cover.png",
+    "Boldreams": "Boldreams LOGO.png",
+    "Suprema Gaming": "Suprema Logo Cover.png",
     "ZeMind Studios": "zemindlogo.png",
     "Luxsonic Technologies Inc.": "luxsonic.png",
     "Halton STEM Club": "halton.png",
@@ -199,7 +205,26 @@ tag_icons = {
     "VR UX": "oculus.png",
     "Database Architecture": "sql.png",
     "Full Stack": "javascript.png",
-    "MVC5": "css3.png"
+    "MVC5": "css3.png",
+    "Leadership": "asana.png",
+    "Start-up Leadership": "asana.png",
+    "Architecture": "visualstudio.png",
+    "System Architecture": "visualstudio.png",
+    "Consulting": "email-t.png",
+    "Multiplayer Systems": "azuredevops.png",
+    "Colyseus": "javascript.png",
+    "Pomelo": "javascript.png",
+    "Cross-Platform": "windows.png",
+    "Web3": "github.png",
+    "Teaching": "zoom.png",
+    "Game Development": "unity.png",
+    "Mentorship": "zoom.png",
+    "Curriculum Design": "word.png",
+    "Software Development": "visualstudio.png",
+    "Problem Solving": "trello.png",
+    "System Analysis": "windows.png",
+    "Enterprise Systems": "microsoftazure.png",
+    "Federal Applications": "visualstudio.png"
 }
 
 timeline_html = ""
@@ -234,7 +259,7 @@ for exp in experiences:
         timeline_html += '''
                     <div class="tags">'''
         for t in exp['tags']:
-            tag_img_html = f'<img src="Images/BW/{tag_icons[t]}" alt="{t}" style="height: 14px; margin-right: 6px; filter: brightness(0) invert(1);">' if t in tag_icons else ''
+            tag_img_html = f'<img src="Images/BW/{tag_icons[t]}" alt="{t}" style="height: 14px; margin-right: 6px; filter: grayscale(1) invert(1) contrast(500%); mix-blend-mode: screen;">' if t in tag_icons else ''
             timeline_html += f'''
                         <span class="tag" style="display: inline-flex; align-items: center;">{tag_img_html}{t}</span>'''
         timeline_html += '''

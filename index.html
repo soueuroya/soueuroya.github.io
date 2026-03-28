@@ -18,22 +18,26 @@
     <!-- Sticky Navigation -->
     <nav class="navbar">
         <div class="navbar-container">
-            <a href="#" class="logo">Daniel <span class="highlight">Boldrin</span></a>
+            <a href="#hero" class="logo">Daniel <span class="highlight">Boldrin</span></a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links">
-                <li><a href="#expertise" class="nav-link">Expertise</a></li>
-                <li><a href="experiences.html" class="nav-link">Experience</a></li>
-                <li><a href="education.html" class="nav-link">Education</a></li>
-                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="Daniel Boldrin - Resume.pdf" target="_blank" class="nav-button">Resume <i class="fas fa-download"></i></a></li>
             </ul>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="hero" id="home">
+    <section class="hero" id="hero">
         <div class="container hero-content fade-up">
             <span class="hero-subtitle">Unity Specialist</span>
             <h1 class="hero-title">Engineering Scalable <br><span class="highlight">Interactive Experiences.</span></h1>
-            <p class="hero-desc">
+            <p class="hero-desc" style="max-width: 75ch;">
                 Results-driven Unity Specialist with 14+ years of experience designing scalable multiplayer systems,
                 immersive VR simulations, and high-performance game architectures from concept to production.
             </p>
@@ -207,12 +211,14 @@
                 <div class="card fade-up delay-1">
                     <i class="fas fa-graduation-cap card-icon"></i>
                     <h3 class="card-title">Game Programming</h3>
-                    <p class="card-desc">Advanced Diploma (Honours) from George Brown College, Toronto. Focused on C++, OpenGL, and engine architecture.</p>
+                    <p class="card-desc">Advanced Diploma (Honours) from George Brown College, Toronto. Focused on C++,
+                        OpenGL, and engine architecture.</p>
                 </div>
                 <div class="card fade-up delay-2">
                     <i class="fas fa-laptop-code card-icon"></i>
                     <h3 class="card-title">System Analysis & Dev</h3>
-                    <p class="card-desc">Advanced Diploma from IFSP, Brazil. Specialized in database administration, networking, and software design.</p>
+                    <p class="card-desc">Advanced Diploma from IFSP, Brazil. Specialized in database administration,
+                        networking, and software design.</p>
                 </div>
             </div>
             <div class="fade-up" style="text-align: center; margin-top: 2rem;">
@@ -221,13 +227,13 @@
         </div>
     </section>
 
-    <!-- SELECTED PROJECTS SECTION -->
+    <!-- PROJECTS PREVIEW -->
     <section class="section" id="projects">
         <div class="container">
             <h2 class="fade-up">Selected Works</h2>
-            <p class="fade-up" style="max-width: 600px; margin-bottom: 3rem;">
+            <p class="fade-up section-desc">
                 A curated selection of shipped titles, prototypes, and technical implementations.
-                Explore the complete collection containing over 20+ titles on my <a
+                <br>Explore the complete collection containing over 20+ titles on my <a
                     href="https://danielboldrin.itch.io/" target="_blank" class="highlight">Itch.io portfolio</a>.
             </p>
 
@@ -296,7 +302,8 @@
                 <!-- Project 5 -->
                 <a href="https://danielboldrin.itch.io/unity-multiplayer-rooms-template" target="_blank"
                     class="game-block fade-up delay-2">
-                    <div class="game-block-bg" style="background-image: url('Images/Unity Multiplayer Template Cover.png');"></div>
+                    <div class="game-block-bg"
+                        style="background-image: url('Images/Unity Multiplayer Template Cover.png');"></div>
                     <div class="game-content">
                         <span class="game-category">Tool Dev / Architecture</span>
                         <h3 class="game-title">Multiplayer Setup Tools</h3>

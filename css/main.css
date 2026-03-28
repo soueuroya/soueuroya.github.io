@@ -177,10 +177,23 @@ p {
     letter-spacing: -0.5px;
 }
 
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text);
+    transition: var(--transition);
+}
+
+.menu-toggle:hover {
+    color: var(--accent);
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
     list-style: none;
+    margin-left: auto;
 }
 
 .nav-link {
@@ -581,8 +594,29 @@ p {
     h2 { font-size: 2rem; }
     .section { padding: 4rem 0; }
     
+    .menu-toggle {
+        display: block;
+    }
+    
     .nav-links {
-        display: none; /* In a real app we'd add a hamburger menu */
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        margin-left: 0;
+        background-color: rgba(15, 23, 42, 0.98);
+        padding: 2rem;
+        gap: 1.5rem;
+        text-align: right;
+        align-items: flex-end;
+        border-bottom: 1px solid var(--border);
+        box-shadow: 0 10px 15px -10px rgba(0, 0, 0, 0.5);
+    }
+    
+    .nav-links.active {
+        display: flex;
     }
     
     .timeline::before {
