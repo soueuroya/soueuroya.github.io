@@ -54,4 +54,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // 4. Cursor tracking for reactive borders
+    document.querySelectorAll('.card, .game-block, .timeline-item').forEach(el => {
+        el.addEventListener('mousemove', e => {
+            const rect = el.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            el.style.setProperty('--mouse-x', `${x}px`);
+            el.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
 });

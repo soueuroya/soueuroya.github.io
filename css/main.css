@@ -338,6 +338,33 @@ p {
     font-weight: 600;
 }
 
+/* Cursor-reactive glow borders */
+.card::after, .game-block::after, .timeline-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: radial-gradient(
+        400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+        rgba(34, 197, 94, 0.4),
+        transparent 40%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.card:hover::after, .game-block:hover::after, .timeline-item:hover::after {
+    opacity: 1;
+}
+
+
 /* Experience Timeline */
 .timeline {
     position: relative;
