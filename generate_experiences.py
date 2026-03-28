@@ -5,6 +5,7 @@ experiences = [
         "role": "Lead Unity Developer",
         "company": "Anime Universe",
         "date": "Feb 2026 - Present",
+        "location": "Canada · Remote (Permanent Part-time)",
         "description": "Leading the Unity development division, contributing to the technical foundation of the platform from early-stage architecture through production. I coordinate the Unity team and collaborate closely with product, design, and art departments.",
         "bullets": ["Flip Frame Ninjas: Leading development of an endless runner, driving design, system architecture, gameplay implementation, and backend services."],
         "tags": ["Unity3D", "Leadership", "Architecture"]
@@ -13,6 +14,7 @@ experiences = [
         "role": "Founder & Tech Leader",
         "company": "Boldreams",
         "date": "Dec 2024 - Present",
+        "location": "Brazil · Remote (Permanent Full-time)",
         "description": "Founder of Boldreams, an indie-focused game development studio providing full-cycle development and technical consulting for international clients. The studio specializes in scalable multiplayer systems, transactional gaming platforms, and service-based game development.",
         "bullets": ["Swipe Kings: Skill-based competitive mobile game featuring real-time matchmaking and progression systems designed for scalable multiplayer environments."],
         "tags": ["Start-up Leadership", "Unity3D", "Consulting"]
@@ -21,6 +23,7 @@ experiences = [
         "role": "Lead Unity Developer",
         "company": "Suprema Gaming",
         "date": "Nov 2024 - Feb 2026",
+        "location": "Sorocaba, São Paulo, Brazil · Remote (Permanent Full-time)",
         "description": "Architected and delivered large-scale multiplayer 2D games using Unity and C#. Integrated real-time networking with Colyseus and Pomelo, optimizing synchronization for thousands of concurrent users.",
         "bullets": [
             "Rodeo: Large-scale multiplayer betting game where thousands of players wager on AI-driven poker duels.",
@@ -32,6 +35,7 @@ experiences = [
         "role": "Lead Unity Developer",
         "company": "ZeMind Studios",
         "date": "Nov 2022 - Mar 2025",
+        "location": "Toronto, Ontario, Canada (Permanent Full-time)",
         "description": "Led cross-functional development team in creating mobile and console applications, driving projects from concept through delivery. Designed and implemented gameplay systems and mechanics in Unity (C#) across iOS, Android, and console platforms.",
         "bullets": [
             "Courting Glory: Free-to-play champion-based deck builder fighting game utilizing Web3 technology.",
@@ -44,6 +48,7 @@ experiences = [
         "role": "Unity VR Developer",
         "company": "Luxsonic Technologies Inc.",
         "date": "Aug 2021 - Nov 2022",
+        "location": "Toronto, Ontario, Canada (Permanent Full-time)",
         "description": "Developed Unity-based VR training and assessment systems for medical personnel, emphasizing clinical realism, VR UX best practices, and interaction design. Delivered cross-platform VR solutions using OpenXR and WaveXR.",
         "bullets": [
             "Microbiology: Full lab simulation including PPE, sterilization, pathogen handling.",
@@ -56,6 +61,7 @@ experiences = [
         "role": "Unity game programing teacher",
         "company": "Halton STEM Club",
         "date": "Jun 2021 - Jun 2022",
+        "location": "Toronto, Ontario, Canada · Remote (Permanent Part-time)",
         "description": "Planned and organized semi-private classes for Unity3D game development and C# programming, catering to students from grades 6 to 10. Designed course materials and activities to enhance understanding of 3D animation and game design principles.",
         "bullets": [],
         "tags": ["C#", "Unity3D", "Teaching"]
@@ -64,6 +70,7 @@ experiences = [
         "role": "Unity game programing teacher",
         "company": "Wells Academy",
         "date": "Mar 2021 - Feb 2022",
+        "location": "Toronto, Ontario, Canada · Remote (Contract Part-time)",
         "description": "Planned and organized semi-private classes for Unity3D game development and C# programming, catering to students from grades 6 to 10. Facilitated hands-on learning experiences, promoting collaboration and creativity.",
         "bullets": [],
         "tags": ["Game Development", "Unity3D", "Mentorship"]
@@ -72,6 +79,7 @@ experiences = [
         "role": "Unity game programing teacher",
         "company": "Thinnox 360",
         "date": "Jul 2018 - Nov 2020",
+        "location": "Greater Toronto Area, Canada (Contract Part-time)",
         "description": "Planned and instructed Unity3D game development, C# programming, and 3D animation classes for groups of up to 12 students. Developed and implemented curriculum focused on electronic circuits and game design.",
         "bullets": [],
         "tags": ["Game Development", "Unity3D", "Curriculum Design"]
@@ -80,6 +88,7 @@ experiences = [
         "role": "System Analyst Developer",
         "company": "Programmers",
         "date": "May 2016 - May 2017",
+        "location": "Matão, São Paulo, Brazil (Permanent Full-time)",
         "description": "Developed and maintained front-end modules for automated medical survey systems, ensuring code quality and reliability. Managed database architecture, ensuring efficient data handling and system functionality.",
         "bullets": [],
         "tags": ["Software Development", "C#", "System Architecture"]
@@ -88,6 +97,7 @@ experiences = [
         "role": "Database Consultant",
         "company": "GRJ Soluções",
         "date": "Mar 2016 - Jan 2017",
+        "location": "Araraquara (Contract Part-time)",
         "description": "First point of contact for Database improvements and management. Implementing and fixing features in several marketing and business software using WAMP.",
         "bullets": [],
         "tags": ["Problem Solving", "C#", "Database Architecture"]
@@ -96,6 +106,7 @@ experiences = [
         "role": "System Analyst Developer",
         "company": "Hewlett-Packard",
         "date": "Jul 2015 - Jul 2016",
+        "location": "Araraquara (Permanent Full-time)",
         "description": "Managed and monitored the performance of five critical systems, ensuring operational functionality and reliability. Conducted comprehensive testing and maintenance of database management systems and bank applications.",
         "bullets": [],
         "tags": ["System Analysis", "C#", "Enterprise Systems"]
@@ -104,6 +115,7 @@ experiences = [
         "role": "System Analyst Developer",
         "company": "CAST",
         "date": "Nov 2014 - Jul 2015",
+        "location": "Araraquara (Permanent Full-time)",
         "description": "Developing several governmental and federal applications and web pages using C# MVC5.",
         "bullets": [],
         "tags": ["Federal Applications", "C#", "MVC5"]
@@ -112,6 +124,7 @@ experiences = [
         "role": "Full Stack Developer",
         "company": "Líder Telecom Ltda.",
         "date": "Apr 2013 - Nov 2014",
+        "location": "Araraquara (Permanent Full-time)",
         "description": "Led a team in various internal projects for the company, improving the quality of the calls answered by the telecom operators and the overall work quality of employees. Released 5 applications used internally by 3000+ employees.",
         "bullets": [],
         "tags": ["C#", "HTML", "Full Stack", "SQL/MYSQL"]
@@ -239,7 +252,10 @@ for exp in experiences:
                         <h3 class="timeline-role">{exp['role']}</h3>
                         <span class="timeline-company" style="display: flex; align-items: center;">{company_logo_html}{exp['company']}</span>
                     </div>
-                    <span class="timeline-date">{exp['date']}</span>
+                    <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end;">
+                        <span class="timeline-date">{exp['date']}</span>
+                        {f'<span class="timeline-location" style="color: var(--sub); font-size: 0.85rem; margin-top: 4px;">{exp["location"]}</span>' if 'location' in exp else ''}
+                    </div>
                 </div>
                 <div class="timeline-content">
                     <p>{exp['description']}</p>'''
