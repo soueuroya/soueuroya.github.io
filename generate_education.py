@@ -8,7 +8,10 @@ education_items = [
         "location": "Toronto, ON - Canada",
         "description": "Graduated with honours. Studied networking, console programming, mobile development, 3D animation, and design. Mastered Unity3D, Unreal Engine, OpenGL, C#, C++, and Python.",
         "type": "Education",
-        "icon": "fa-graduation-cap"
+        "icon": "fa-graduation-cap",
+        "images": ["george brown college diploma.png"],
+        "logo_img": "georgebrown.png",
+        "tags": ["C#", "C++", "Unity3D", "Unreal Engine", "OpenGL", "Python"]
     },
     {
         "title": "System Analysis and Development - Diploma",
@@ -17,7 +20,10 @@ education_items = [
         "location": "Araraquara, SP - Brazil",
         "description": "Studied C, C++, C#, Java, Lua, and Python. Specialized in networking, security, OS, and database management. Volunteered as a tutor in Object Oriented Programming and Data Structures.",
         "type": "Education",
-        "icon": "fa-graduation-cap"
+        "icon": "fa-graduation-cap",
+        "images": ["ifsp college diploma.png"],
+        "logo_img": "ifsp araraquara.png",
+        "tags": ["C", "C++", "C#", "Java", "Python", "SQL", "Linux", "Windows"]
     },
     {
         "title": "Web Accessibility - Undergraduate Research",
@@ -26,7 +32,10 @@ education_items = [
         "location": "Brazil (Various cities)",
         "description": "Researched human-computer interaction and accessibility implications for users with disabilities. Developed a specialized survey targeting governmental systems based on W3C affordance best practices.",
         "type": "Research",
-        "icon": "fa-microscope"
+        "icon": "fa-microscope",
+        "images": ["florianopolis Undergraduate Research.png", "web accessibility forum certification.png", "araraquara Web Accessibility certificate.png", "IC certification Web Accessibility.png"],
+        "logo_img": "ifsp sp.png",
+        "tags": ["HTML", "CSS3", "PHP", "Javascript", "Photoshop", "Word", "Excel"]
     },
     {
         "title": "Biz Game Development Presenter",
@@ -35,7 +44,10 @@ education_items = [
         "location": "Araraquara, SP - Brazil",
         "description": "Volunteered as a Business and Game Development presenter. Created and demoed 3 minigames targeting different genres using C# and XNA.",
         "type": "Presentation",
-        "icon": "fa-chalkboard-teacher"
+        "icon": "fa-chalkboard-teacher",
+        "images": ["bizgames presentation.png"],
+        "logo_img": "moura.png",
+        "tags": ["C#", "XNA", "Visual Studio"]
     },
     {
         "title": "Standards of Business Conduct Certification",
@@ -44,7 +56,10 @@ education_items = [
         "location": "Araraquara, SP - Brazil",
         "description": "Corporate certification covering ethical and professional standards in enterprise environments.",
         "type": "Certification",
-        "icon": "fa-certificate"
+        "icon": "fa-certificate",
+        "images": ["HP CERTIFICATION standard business conduct.png"],
+        "logo_img": "hp.png",
+        "tags": ["Enterprise Systems", "Compliance"]
     },
     {
         "title": "Secret Acting Role (Volunteer)",
@@ -53,9 +68,35 @@ education_items = [
         "location": "Toronto, ON - Canada",
         "description": "Volunteered as an undercover agent acting role. Facilitated guest interaction for the main alternate reality game played during the Hand Eye Society Ball.",
         "type": "Volunteer Work",
-        "icon": "fa-hands-helping"
+        "icon": "fa-hands-helping",
+        "images": [],
+        "logo_img": "handeyesociety.png",
+        "tags": ["Acting", "Game Direction", "Live Events"]
     }
 ]
+
+tag_icons = {
+    "Unity3D": "unity.png",
+    "C#": "csharp.png",
+    "C++": "cplusplus.png",
+    "C": "c.png",
+    "Java": "java.png",
+    "Python": "python.png",
+    "HTML": "html5.png",
+    "CSS3": "css3.png",
+    "SQL": "sql.png",
+    "Linux": "linux.png",
+    "Windows": "windows.png",
+    "Javascript": "javascript.png",
+    "Photoshop": "photoshop.png",
+    "Word": "word.png",
+    "Excel": "microsoftexcel.png",
+    "PHP": "php.png",
+    "Unreal Engine": "unrealengine.png",
+    "OpenGL": "opengl.png",
+    "XNA": "xna.png",
+    "Visual Studio": "visualstudio.png"
+}
 
 html_template = """<!DOCTYPE html>
 <html lang="en">
@@ -116,19 +157,35 @@ html_template = """<!DOCTYPE html>
 
 timeline_html = ""
 for item in education_items:
+    img_html = ""
+    for img in item.get('images', []):
+        img_html += f'<img src="Images/{img}" alt="Doc" class="timeline-img fade-up delay-1" style="max-height: 100px; border-radius: 4px; margin-top: 1rem; margin-right: 1rem; border: 1px solid var(--border); opacity: 0.9;">'
+    if img_html:
+        img_html = f'<div style="display: flex; flex-wrap: wrap;">{img_html}</div>'
+        
+    logo_html = f'<img src="Images/{item["logo_img"]}" alt="{item["institution"]} Logo" style="height: 20px; margin-right: 8px; border-radius: 4px; vertical-align: middle;">' if 'logo_img' in item else ''
+    
+    tags_html = ""
+    for t in item.get("tags", []):
+        tag_icon_src = tag_icons.get(t)
+        tag_img = f'<img src="Images/BW/{tag_icon_src}" alt="{t}" style="height: 14px; margin-right: 6px; filter: brightness(0) invert(1);">' if tag_icon_src else ''
+        tags_html += f'<span class="tag" style="display: inline-flex; align-items: center;">{tag_img}{t}</span>'
+    
     timeline_html += f'''
                 <div class="timeline-item fade-up">
                     <div class="timeline-header">
                         <div>
                             <h3 class="timeline-role"><i class="fas {item['icon']}" style="margin-right: 10px; color: var(--accent);"></i>{item['title']}</h3>
-                            <span class="timeline-company">{item['institution']} - {item['location']}</span>
+                            <span class="timeline-company" style="display: flex; align-items: center;">{logo_html}{item['institution']} - {item['location']}</span>
                         </div>
                         <span class="timeline-date">{item['date']}</span>
                     </div>
                     <div class="timeline-content">
                         <p>{item['description']}</p>
-                        <div class="tags">
+                        {img_html}
+                        <div class="tags" style="margin-top: 1.5rem;">
                             <span class="tag">{item['type']}</span>
+                            {tags_html}
                         </div>
                     </div>
                 </div>'''

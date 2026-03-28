@@ -175,44 +175,74 @@ html_template = """<!DOCTYPE html>
 </body>
 </html>"""
 
+company_logos = {
+    "ZeMind Studios": "zemindlogo.png",
+    "Luxsonic Technologies Inc.": "luxsonic.png",
+    "Halton STEM Club": "halton.png",
+    "Wells Academy": "wells academy logo.png",
+    "Thinnox 360": "thinnox.png",
+    "Programmers": "programmers.png",
+    "GRJ Soluções": "grx.png",
+    "Hewlett-Packard": "hp.png",
+    "CAST": "cast logo.png",
+    "Líder Telecom Ltda.": "lider.png"
+}
+
+tag_icons = {
+    "Unity3D": "unity.png",
+    "C#": "csharp.png",
+    "HTML": "html5.png",
+    "SQL/MYSQL": "mysql.png",
+    "Consoles": "xbox.png",
+    "OpenXR": "openxr.png",
+    "WaveXR": "wave.png",
+    "VR UX": "oculus.png",
+    "Database Architecture": "sql.png",
+    "Full Stack": "javascript.png",
+    "MVC5": "css3.png"
+}
+
 timeline_html = ""
 for exp in experiences:
+    company_logo_html = f'<img src="Images/{company_logos[exp["company"]]}" alt="{exp["company"]} Logo" style="height: 20px; margin-right: 8px; border-radius: 4px; vertical-align: middle;">' if exp["company"] in company_logos else ''
+    
     timeline_html += f'''
-                <!-- {exp['company']} -->
-                <div class="timeline-item fade-up">
-                    <div class="timeline-header">
-                        <div>
-                            <h3 class="timeline-role">{exp['role']}</h3>
-                            <span class="timeline-company">{exp['company']}</span>
-                        </div>
-                        <span class="timeline-date">{exp['date']}</span>
+            <!-- {exp['company']} -->
+            <div class="timeline-item fade-up">
+                <div class="timeline-header">
+                    <div>
+                        <h3 class="timeline-role">{exp['role']}</h3>
+                        <span class="timeline-company" style="display: flex; align-items: center;">{company_logo_html}{exp['company']}</span>
                     </div>
-                    <div class="timeline-content">
-                        <p>{exp['description']}</p>'''
+                    <span class="timeline-date">{exp['date']}</span>
+                </div>
+                <div class="timeline-content">
+                    <p>{exp['description']}</p>'''
     
     if exp['bullets']:
         timeline_html += '''
-                        <ul>'''
+                    <ul>'''
         for b in exp['bullets']:
             bold_part = b.split(':')[0] + ':' if ':' in b else b
             desc_part = b[len(bold_part):] if ':' in b else ''
             timeline_html += f'''
-                            <li><strong>{bold_part}</strong>{desc_part}</li>'''
+                        <li><strong>{bold_part}</strong>{desc_part}</li>'''
         timeline_html += '''
-                        </ul>'''
-                        
+                    </ul>'''
+                    
     if exp['tags']:
         timeline_html += '''
-                        <div class="tags">'''
+                    <div class="tags">'''
         for t in exp['tags']:
+            tag_img_html = f'<img src="Images/BW/{tag_icons[t]}" alt="{t}" style="height: 14px; margin-right: 6px; filter: brightness(0) invert(1);">' if t in tag_icons else ''
             timeline_html += f'''
-                            <span class="tag">{t}</span>'''
+                        <span class="tag" style="display: inline-flex; align-items: center;">{tag_img_html}{t}</span>'''
         timeline_html += '''
-                        </div>'''
+                    </div>'''
 
     timeline_html += '''
-                    </div>
-                </div>'''
+                </div>
+            </div>'''
 
 final_html = html_template.replace("{TIMELINE_ITEMS}", timeline_html)
 

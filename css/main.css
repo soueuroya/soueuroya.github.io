@@ -477,7 +477,24 @@ p {
     border-color: var(--accent);
 }
 
+.game-block-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 0;
+}
+
+.game-block:hover .game-block-bg {
+    opacity: 0.35;
+    transform: scale(1.05);
+}
+
 .game-content {
+    position: relative;
+    z-index: 1;
     padding: 2rem;
     display: flex;
     flex-direction: column;

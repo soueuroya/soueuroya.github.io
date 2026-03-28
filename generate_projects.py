@@ -105,9 +105,41 @@ for line in games_txt.split('\n'):
         cat = "Unity Tool / Framework"
     if title == "RAWMEN": cat = "Action / Arena Shooter"
     
+    # Image mapper
+    img_name = ""
+    covers = {
+        "RAWMEN": "Rawmen Cover.png",
+        "Rodeo Poker": "Rodeo cover.png",
+        "hoame": "hoame Cover.png",
+        "Courting Glory": "Courting Glory Cover.png",
+        "ColoRise": "Colorise Cover.png",
+        "Chalko": "Chalko Cover.gif",
+        "Heist of Whiskers": "Heist of Whikers Cover.png",
+        "Qbert": "QBert Cover.png",
+        "CrocGame": "Croc Game Cover.png",
+        "Diedle36": "Diedle36 Cover.png",
+        "BattleBots": "Battlebots Cover.png",
+        "Nail Down": "NailDown Coverpng.png",
+        "Hacking Minigame": "Hackign Minigame Cover.png",
+        "Sky Runner": "Sky Runner.png",
+        "Fruit Splash": "Fruit Splash Cover.png",
+        "Lockpicking Minigame": "Lockpicking Cover.png",
+        "Unity Multiplayer": "Unity Multiplayer Template Cover.png",
+        "Simple Unity Audio": "Unity Audio visualizer Cover.png",
+        "Wired Saintz": "Wired Saintz Cover.png",
+        "Sword": "Sword Cover.png"
+    }
+    
+    if title in covers:
+        img_url = f"Images/{covers[title]}"
+        bg_html = f'<div class="game-block-bg" style="background-image: url(\'{img_url}\');"></div>'
+    else:
+        bg_html = ""
+    
     game_items += f'''
                 <!-- Project -->
                 <a href="{link}" target="_blank" class="game-block fade-up delay-{(delay % 3) + 1}">
+                    {bg_html}
                     <div class="game-content">
                         <span class="game-category">{cat}</span>
                         <h3 class="game-title">{title}</h3>
