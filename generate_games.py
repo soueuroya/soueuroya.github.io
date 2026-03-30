@@ -26,7 +26,7 @@ html_template = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Boldrin | Projects & Games</title>
+    <title>Daniel Boldrin | Games</title>
     
     <link rel="stylesheet" href="css/main.css?v=2">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -51,10 +51,10 @@ html_template = """<!DOCTYPE html>
 
     <div style="height: 100px;"></div> <!-- Spacer for fixed nav -->
 
-    <!-- PROJECTS SECTION -->
-    <section class="section section-alt" id="projects">
+    <!-- GAMES SECTION -->
+    <section class="section section-alt" id="games">
         <div class="container">
-            <h2 class="fade-up">All Projects & Games</h2>
+            <h2 class="fade-up">All Games & Prototypes</h2>
             <p class="fade-up" style="max-width: 600px; margin-bottom: 3rem;">
                 A complete catalog of my shipped titles, prototypes, game jams, and open-source Unity frameworks. 
                 For playable builds, visit my <a href="https://danielboldrin.itch.io/" target="_blank" class="highlight">Itch.io profile</a>.
@@ -79,6 +79,12 @@ html_template = """<!DOCTYPE html>
         </div>
     </footer>
 
+    <!-- Image Lightbox Modal -->
+    <div id="image-modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
     <!-- unified script -->
     <script src="js/main.js?v=2"></script>
 </body>
@@ -101,7 +107,7 @@ for line in games_txt.split('\n'):
         continue
     
     # Simple mapping to add some aesthetic tags to generic descriptions if needed
-    cat = "Project"
+    cat = "Game"
     if "Game" in desc or "Platformer" in desc or "Remake" in desc or "Runner" in desc:
         cat = "Game Dev"
     if "Template" in desc or "projects" in desc:
@@ -140,7 +146,7 @@ for line in games_txt.split('\n'):
         bg_html = ""
     
     game_items += f'''
-                <!-- Project -->
+                <!-- Game Item -->
                 <a href="{link}" target="_blank" class="game-block fade-up delay-{(delay % 3) + 1}">
                     {bg_html}
                     <div class="game-content">
@@ -153,7 +159,7 @@ for line in games_txt.split('\n'):
 
 final_html = html_template.replace("{GAME_ITEMS}", game_items)
 
-with open("projects.html", "w", encoding="utf-8") as f:
+with open("games.html", "w", encoding="utf-8") as f:
     f.write(final_html)
     
-print("projects.html successfully built!")
+print("games.html successfully built!")

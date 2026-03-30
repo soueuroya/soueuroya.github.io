@@ -4,13 +4,13 @@ Welcome to the repository for my personal portfolio website. This site serves as
 
 ## Overview
 
-This repository uses a custom static site generation approach powered by Python scripts. Instead of relying on full-fledged JS frameworks, the site uses Python scripts to read data and templates, which are then compiled into static HTML files (`index.html`, `projects.html`, `education.html`, and `experiences.html`).
+This repository uses a custom static site generation approach powered by Python scripts. Instead of relying on full-fledged JS frameworks, tThe site uses Python scripts to read data and templates, which are then compiled into static HTML files (`index.html`, `games.html`, `education.html`, and `experiences.html`).
 
 ## Repository Structure
 
 - **Python Generators**: The core builder scripts.
   - `generate_index.py` - Generates the main `index.html` file (sometimes pulling data from another local repository).
-  - `generate_projects.py` - Parses a list of projects and games and generates the `projects.html` page.
+  - `generate_games.py` - Parses a list of projects and games and generates the `games.html` page.
   - `generate_experiences.py` - Generates the professional experience history in `experiences.html`.
   - `generate_education.py` - Generates the educational background in `education.html`.
 - **Static Assets**:
@@ -25,7 +25,7 @@ If you make modifications to the styling templates or the Python script configur
 
 ```bash
 python generate_index.py
-python generate_projects.py
+python generate_games.py
 python generate_experiences.py
 python generate_education.py
 ```

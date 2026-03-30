@@ -153,6 +153,12 @@ html_template = """<!DOCTYPE html>
         </div>
     </footer>
 
+    <!-- Image Lightbox Modal -->
+    <div id="image-modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
     <!-- unified script -->
     <script src="js/main.js?v=2"></script>
 </body>
@@ -171,7 +177,7 @@ for item in education_items:
     
     img_html = ""
     for img in item.get('images', []):
-        img_html += f'<img src="Images/{img}" alt="Doc" class="timeline-img fade-up delay-1" style="max-height: 100px; border-radius: 4px; margin-top: 1rem; margin-right: 1rem; border: 1px solid var(--border); opacity: 0.9;">'
+        img_html += f'<img src="Images/{img}" alt="Doc" class="timeline-img fade-up delay-1 clickable-image" style="max-height: 100px; border-radius: 4px; margin-top: 1rem; margin-right: 1rem; border: 1px solid var(--border); opacity: 0.9; cursor: pointer; transition: transform 0.3s ease;">'
     if img_html:
         img_html = f'<div style="display: flex; flex-wrap: wrap;">{img_html}</div>'
         

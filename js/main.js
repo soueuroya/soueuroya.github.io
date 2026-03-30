@@ -153,4 +153,36 @@ document.addEventListener('DOMContentLoaded', () => {
             clearInterval(gifInterval);
         });
     });
+
+    // 7. Image Lightbox
+    const modal = document.getElementById('image-modal');
+    const modalImg = document.getElementById('modal-img');
+    const closeBtn = document.querySelector('.modal-close');
+
+    if (modal && modalImg) {
+        // Global click listener for images with 'clickable-image' class
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('clickable-image')) {
+                modal.classList.add('active');
+                modalImg.src = e.target.src;
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            }
+        });
+
+        const closeModal = () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    }
 });

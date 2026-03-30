@@ -186,6 +186,12 @@ html_template = """<!DOCTYPE html>
         </div>
     </footer>
 
+    <!-- Image Lightbox Modal -->
+    <div id="image-modal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
     <!-- unified script -->
     <script src="js/main.js?v=2"></script>
 </body>
