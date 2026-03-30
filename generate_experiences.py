@@ -240,8 +240,17 @@ tag_icons = {
     "Federal Applications": "visualstudio.png"
 }
 
+# Comprehensive priority order for tags
+priority_order = ["C#", "Unity3D", "Multiplayer Systems", "Architecture", "System Architecture", "Software Development", "Full Stack", "SQL/MYSQL", "Database Architecture", "Colyseus", "Pomelo", "Javascript", "HTML", "CSS3", "MVC5", "OpenXR", "WaveXR", "VR UX", "Consoles", "Cross-Platform", "Mobile UX", "Optimization", "Web3", "Leadership", "Start-up Leadership", "Consulting", "Teaching", "Mentorship", "Curriculum Design", "Problem Solving", "System Analysis", "Enterprise Systems", "Federal Applications"]
+
+def sort_tags(tags):
+    return sorted(tags, key=lambda t: (priority_order.index(t) if t in priority_order else 99, t))
+
 timeline_html = ""
 for exp in experiences:
+    # Sort tags before generating HTML
+    current_tags = sort_tags(exp.get('tags', []))
+    
     company_logo_html = f'<img src="Images/{company_logos[exp["company"]]}" alt="{exp["company"]} Logo" style="height: 20px; margin-right: 8px; border-radius: 4px; vertical-align: middle;">' if exp["company"] in company_logos else ''
     
     timeline_html += f'''
@@ -271,10 +280,10 @@ for exp in experiences:
         timeline_html += '''
                     </ul>'''
                     
-    if exp['tags']:
+    if current_tags:
         timeline_html += '''
                     <div class="tags">'''
-        for t in exp['tags']:
+        for t in current_tags:
             tag_img_html = f'<img src="Images/BW/{tag_icons[t]}" alt="{t}" style="height: 14px; margin-right: 6px; filter: grayscale(1) invert(1) contrast(500%); mix-blend-mode: screen;">' if t in tag_icons else ''
             timeline_html += f'''
                         <span class="tag" style="display: inline-flex; align-items: center;">{tag_img_html}{t}</span>'''

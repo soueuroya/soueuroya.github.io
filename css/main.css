@@ -93,6 +93,55 @@ p {
 
 .section-alt {
     background-color: var(--bg-alt);
+    position: relative;
+    transition: background-color 0.5s ease;
+}
+
+.expertise-bg-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.expertise-bg-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.95) 100%);
+}
+
+.expertise-bg-overlay.active {
+    opacity: 1;
+}
+
+#expertise.bg-active {
+    background-color: transparent !important;
+}
+
+/* Hide navbar during expertise focus */
+body.expertise-mode .navbar {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+/* Completely vanish other cards when focusing */
+#expertise.bg-active .card:not(:hover) {
+    opacity: 0;
+    transform: scale(0.9);
+    filter: blur(10px);
+    pointer-events: none;
+}
+
+#expertise .card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .highlight {

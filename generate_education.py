@@ -158,8 +158,17 @@ html_template = """<!DOCTYPE html>
 </body>
 </html>"""
 
+# Comprehensive priority order for tags
+priority_order = ["C#", "Unity3D", "C++", "C", "Java", "Python", "SQL", "HTML", "CSS3", "Javascript", "PHP", "Unreal Engine", "OpenGL", "XNA", "Visual Studio", "Linux", "Windows", "Photoshop", "Working", "Excel"]
+
+def sort_tags(tags):
+    return sorted(tags, key=lambda t: (priority_order.index(t) if t in priority_order else 99, t))
+
 timeline_html = ""
 for item in education_items:
+    # Sort tags
+    current_tags = sort_tags(item.get("tags", []))
+    
     img_html = ""
     for img in item.get('images', []):
         img_html += f'<img src="Images/{img}" alt="Doc" class="timeline-img fade-up delay-1" style="max-height: 100px; border-radius: 4px; margin-top: 1rem; margin-right: 1rem; border: 1px solid var(--border); opacity: 0.9;">'
@@ -169,7 +178,7 @@ for item in education_items:
     logo_html = f'<img src="Images/{item["logo_img"]}" alt="{item["institution"]} Logo" style="height: 20px; margin-right: 8px; border-radius: 4px; vertical-align: middle;">' if 'logo_img' in item else ''
     
     tags_html = ""
-    for t in item.get("tags", []):
+    for t in current_tags:
         tag_icon_src = tag_icons.get(t)
         tag_img = f'<img src="Images/BW/{tag_icon_src}" alt="{t}" style="height: 14px; margin-right: 6px; filter: grayscale(1) invert(1) contrast(500%); mix-blend-mode: screen;">' if tag_icon_src else ''
         tags_html += f'<span class="tag" style="display: inline-flex; align-items: center;">{tag_img}{t}</span>'

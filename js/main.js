@@ -90,4 +90,67 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    
+    // 6. Expertise Section Hover Backgrounds
+    const body = document.body;
+    const expertiseSection = document.getElementById('expertise');
+    const layers = [
+        document.getElementById('expertise-overlay-1'),
+        document.getElementById('expertise-overlay-2')
+    ];
+    const expertiseCards = document.querySelectorAll('#expertise .card');
+    
+    let gifInterval;
+    let activeLayer = 0;
+    
+    function switchBackground(imageUrl) {
+        const nextLayer = 1 - activeLayer;
+        
+        // Prepare next layer
+        layers[nextLayer].style.backgroundImage = `url('${imageUrl}')`;
+        
+        // Crossfade
+        layers[nextLayer].classList.add('active');
+        layers[activeLayer].classList.remove('active');
+        
+        activeLayer = nextLayer;
+    }
+    
+    expertiseCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            const bgData = card.getAttribute('data-bg');
+            if (!bgData) return;
+            
+            const images = bgData.split(',');
+            expertiseSection.classList.add('bg-active');
+            body.classList.add('expertise-mode');
+            
+            if (images.length > 1) {
+                let currentIndex = 0;
+                switchBackground(images[currentIndex]);
+                
+                clearInterval(gifInterval);
+                gifInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    
+                    // Preload next image for smooth transition
+                    const tempImg = new Image();
+                    tempImg.src = images[currentIndex];
+                    tempImg.onload = () => {
+                        switchBackground(images[currentIndex]);
+                    };
+                }, 4000); // 4 seconds for a slower, more premium feel
+            } else {
+                switchBackground(images[0]);
+                clearInterval(gifInterval);
+            }
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            expertiseSection.classList.remove('bg-active');
+            body.classList.remove('expertise-mode');
+            layers.forEach(layer => layer.classList.remove('active'));
+            clearInterval(gifInterval);
+        });
+    });
 });
