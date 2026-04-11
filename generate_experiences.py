@@ -215,7 +215,7 @@ company_logos = {
     "Boldreams": "Boldreams LOGO.png",
     "Suprema Gaming": "Suprema Logo Cover.png",
     "ZeMind Studios": "zemindlogo.png",
-    "Luxsonic Technologies Inc.": "luxsonic.png",
+    "Luxsonic Technologies Inc.": "Luxsonic.png",
     "Halton STEM Club": "halton.png",
     "Wells Academy": "wells academy logo.png",
     "Thinnox 360": "thinnox.png",
