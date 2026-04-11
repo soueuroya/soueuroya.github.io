@@ -8,7 +8,8 @@ experiences = [
         "location": "Canada · Remote (Permanent Part-time)",
         "description": "Leading the Unity development division, contributing to the technical foundation of the platform from early-stage architecture through production. I coordinate the Unity team and collaborate closely with product, design, and art departments.",
         "bullets": ["Flip Frame Ninjas: Leading development of an endless runner, driving design, system architecture, gameplay implementation, and backend services."],
-        "tags": ["Unity3D", "Leadership", "Architecture"]
+        "tags": ["Unity3D", "Leadership", "Architecture"],
+        "skills": ["Unity", "C#", "Addressables", "Google Play Console", "Team Leadership", "MVVM / MVC", "CI/CD", "WebGL", "Android", "iOS", "ScriptableObject Architecture", "Profiling", "Analytics", "Ads", "Supabase", "DB Design", "AI-assisted Development", "Antigravity", "Development Coordination", "Multiplayer Systems", "Localization", "Python", "Jira", "Trello", "Slack", "AWS", "Dependency Injection", "SOLID Principles", "Clean Architecture", "Performance Optimization"]
     },
     {
         "role": "Founder & Tech Leader",
@@ -17,7 +18,8 @@ experiences = [
         "location": "Brazil · Remote (Permanent Full-time)",
         "description": "Founder of Boldreams, an indie-focused game development studio providing full-cycle development and technical consulting for international clients. The studio specializes in scalable multiplayer systems, transactional gaming platforms, and service-based game development.",
         "bullets": ["Swipe Kings: Skill-based competitive mobile game featuring real-time matchmaking and progression systems designed for scalable multiplayer environments."],
-        "tags": ["Start-up Leadership", "Unity3D", "Consulting"]
+        "tags": ["Start-up Leadership", "Unity3D", "Consulting"],
+        "skills": ["Unity", "C#", "Addressables", "Google Play Console", "Startup Leadership", "MVC", "CI/CD", "WebGL", "Android", "iOS", "ScriptableObject Architecture", "Profiling", "Analytics", "Ads", "Supabase", "Server-Authoritative Systems", "DB Design", "AI", "Antigravity", "Business", "B2B", "Development Coordination", "Multiplayer Systems", "Python", "Trello", "Miro", "AWS", "Game Systems Design", "Economy Design"]
     },
     {
         "role": "Lead Unity Developer",
@@ -29,7 +31,8 @@ experiences = [
             "Rodeo: Large-scale multiplayer betting game where thousands of players wager on AI-driven poker duels.",
             "Poker App: Modular multiplayer poker platform for real-time matches, custom clubs, and table creation, with union systems connecting global players."
         ],
-        "tags": ["Unity3D", "Multiplayer Systems", "Colyseus", "Pomelo"]
+        "tags": ["Unity3D", "Multiplayer Systems", "Colyseus", "Pomelo"],
+        "skills": ["Unity", "C#", "Addressables", "Google Play Console", "Team Leadership", "MVVM", "CI/CD", "WebGL", "Android", "iOS", "ScriptableObjects", "Profiling", "Analytics", "Ads", "Colyseus", "Pomelo", "Cocos", "DB Design", "AI", "Antigravity", "Multiplayer Systems", "Client-Server Architecture", "Large Scale Development", "Python", "Jira", "Slack", "Teams", "Figma", "GitHub", "AWS", "Load Handling"]
     },
     {
         "role": "Lead Unity Developer",
@@ -42,7 +45,8 @@ experiences = [
             "Rawmen: A radical 2-8 player multiplayer third-person arena shooter for Xbox, PlayStation, Switch and Steam.",
             "Hoame: A 360 mobile mindfulness application offering elevated on-demand experiences."
         ],
-        "tags": ["Unity3D", "Cross-Platform", "Web3", "Consoles"]
+        "tags": ["Unity3D", "Cross-Platform", "Web3", "Consoles"],
+        "skills": ["Unity", "C#", "Addressables", "Google Play Console", "Team Leadership", "MVC", "CI/CD", "WebGL", "Android", "iOS", "ScriptableObjects", "Profiling", "Analytics", "Ads", "DB Design", "AI", "Antigravity", "Multiplayer Systems", "Large Scale Development", "Blockchain", "NFT", "CMF", "Jira", "Slack", "Figma", "GitHub", "AWS", "Client-Server Architecture"]
     },
     {
         "role": "Unity VR Developer",
@@ -55,7 +59,8 @@ experiences = [
             "VAPOC: Emergency responder simulation featuring dynamic patient interactions.",
             "Blood Transfusion: Complete transfusion process simulator with procedural verification."
         ],
-        "tags": ["Unity3D", "VR UX", "OpenXR", "WaveXR"]
+        "tags": ["Unity3D", "VR UX", "OpenXR", "WaveXR"],
+        "skills": ["Unity", "C#", "VR", "AR", "OpenXR", "WaveXR", "Addressables", "MVC", "Medical Simulations", "Microbiology", "VAPOC", "Blood Transfusion", "CI/CD", "Android", "iOS", "ScriptableObjects", "Profiling", "Multiplayer Systems", "Asana", "Teams", "Github", "Security / Data Privacy", "Audit Logging"]
     },
     {
         "role": "Unity game programing teacher",
@@ -64,7 +69,8 @@ experiences = [
         "location": "Toronto, Ontario, Canada · Remote (Permanent Part-time)",
         "description": "Planned and organized semi-private classes for Unity3D game development and C# programming, catering to students from grades 6 to 10. Designed course materials and activities to enhance understanding of 3D animation and game design principles.",
         "bullets": [],
-        "tags": ["C#", "Unity3D", "Teaching"]
+        "tags": ["C#", "Unity3D", "Teaching"],
+        "skills": ["Teaching", "Unity", "C#", "Animation", "3D Modeling", "Python", "Scratch", "Technical Drawing", "Curriculum Design", "Mentorship"]
     },
     {
         "role": "Unity game programing teacher",
@@ -73,7 +79,8 @@ experiences = [
         "location": "Toronto, Ontario, Canada · Remote (Contract Part-time)",
         "description": "Planned and organized semi-private classes for Unity3D game development and C# programming, catering to students from grades 6 to 10. Facilitated hands-on learning experiences, promoting collaboration and creativity.",
         "bullets": [],
-        "tags": ["Game Development", "Unity3D", "Mentorship"]
+        "tags": ["Game Development", "Unity3D", "Mentorship"],
+        "skills": ["Teaching", "Unity", "C#", "Animation", "3D Modeling", "Python", "Alison", "Technical Drawing", "Curriculum Design", "Mentorship"]
     },
     {
         "role": "Unity game programing teacher",
@@ -82,7 +89,8 @@ experiences = [
         "location": "Greater Toronto Area, Canada (Contract Part-time)",
         "description": "Planned and instructed Unity3D game development, C# programming, and 3D animation classes for groups of up to 12 students. Developed and implemented curriculum focused on electronic circuits and game design.",
         "bullets": [],
-        "tags": ["Game Development", "Unity3D", "Curriculum Design"]
+        "tags": ["Game Development", "Unity3D", "Curriculum Design"],
+        "skills": ["Teaching", "Unity", "C#", "C++", "Animation", "3D Modeling", "Python", "Circuits", "Technical Drawing", "Curriculum Design"]
     },
     {
         "role": "System Analyst Developer",
@@ -91,7 +99,8 @@ experiences = [
         "location": "Matão, São Paulo, Brazil (Permanent Full-time)",
         "description": "Developed and maintained front-end modules for automated medical survey systems, ensuring code quality and reliability. Managed database architecture, ensuring efficient data handling and system functionality.",
         "bullets": [],
-        "tags": ["Software Development", "C#", "System Architecture"]
+        "tags": ["Software Development", "C#", "System Architecture"],
+        "skills": ["C#", "MVC5", "HTML", "CSS", "Javascript", "JQuery", "SQL/MYSQL", "XML", "System Architecture"]
     },
     {
         "role": "Database Consultant",
@@ -100,7 +109,8 @@ experiences = [
         "location": "Araraquara (Contract Part-time)",
         "description": "First point of contact for Database improvements and management. Implementing and fixing features in several marketing and business software using WAMP.",
         "bullets": [],
-        "tags": ["Problem Solving", "C#", "Database Architecture"]
+        "tags": ["Problem Solving", "C#", "Database Architecture"],
+        "skills": ["C#", "QA Automation", "Contingency Planning", "Database Management", "SQL/MYSQL", "System Maintenance"]
     },
     {
         "role": "System Analyst Developer",
@@ -109,7 +119,8 @@ experiences = [
         "location": "Araraquara (Permanent Full-time)",
         "description": "Managed and monitored the performance of five critical systems, ensuring operational functionality and reliability. Conducted comprehensive testing and maintenance of database management systems and bank applications.",
         "bullets": [],
-        "tags": ["System Analysis", "C#", "Enterprise Systems"]
+        "tags": ["System Analysis", "C#", "Enterprise Systems"],
+        "skills": ["C#", "QA Automation", "Contingency Planning", "Database Management", "SQL/MYSQL", "System Maintenance"]
     },
     {
         "role": "System Analyst Developer",
@@ -118,7 +129,8 @@ experiences = [
         "location": "Araraquara (Permanent Full-time)",
         "description": "Developing several governmental and federal applications and web pages using C# MVC5.",
         "bullets": [],
-        "tags": ["Federal Applications", "C#", "MVC5"]
+        "tags": ["Federal Applications", "C#", "MVC5"],
+        "skills": ["C#", "PHP", "MVC", "HTML", "CSS", "JQuery", "SQL/MYSQL", "Government Relations", "DB Design"]
     },
     {
         "role": "Full Stack Developer",
@@ -127,7 +139,8 @@ experiences = [
         "location": "Araraquara (Permanent Full-time)",
         "description": "Led a team in various internal projects for the company, improving the quality of the calls answered by the telecom operators and the overall work quality of employees. Released 5 applications used internally by 3000+ employees.",
         "bullets": [],
-        "tags": ["C#", "HTML", "Full Stack", "SQL/MYSQL"]
+        "tags": ["C#", "HTML", "Full Stack", "SQL/MYSQL"],
+        "skills": ["C#", "PHP", "MVC", "HTML", "CSS", "JQuery", "KendoUI", "SQL/MYSQL", "Apache", "IIS", "WAMP/LAMP", "Aheeva", "Active Directory", "Full-Stack Development", "Team Leadership"]
     }
 ]
 
@@ -285,15 +298,23 @@ for exp in experiences:
                         <li><strong>{bold_part}</strong>{desc_part}</li>'''
         timeline_html += '''
                     </ul>'''
-                    
-    if current_tags:
+
+    skills = exp.get('skills', [])
+    if skills:
         timeline_html += '''
-                    <div class="tags">'''
-        for t in current_tags:
-            tag_img_html = f'<img src="Images/BW/{tag_icons[t]}" alt="{t}" style="height: 14px; margin-right: 6px; filter: grayscale(1) invert(1) contrast(500%); mix-blend-mode: screen;">' if t in tag_icons else ''
+                    <div class="skills-marquee-container">
+                        <div class="skills-marquee">'''
+        
+        # Duplicate the skills array to create a seamless scrolling loop
+        display_skills = skills + skills
+        for s in display_skills:
+            tag_icon_src = tag_icons.get(s, tag_icons.get(s.replace("Unity", "Unity3D")))
+            tag_img = f'<img src="Images/BW/{tag_icon_src}" alt="{s}" style="height: 14px; margin-right: 6px; filter: grayscale(1) invert(1) contrast(500%); mix-blend-mode: screen;">' if tag_icon_src else ''
             timeline_html += f'''
-                        <span class="tag" style="display: inline-flex; align-items: center;">{tag_img_html}{t}</span>'''
+                            <span class="skill-pill">{tag_img}{s}</span>'''
+                            
         timeline_html += '''
+                        </div>
                     </div>'''
 
     timeline_html += '''

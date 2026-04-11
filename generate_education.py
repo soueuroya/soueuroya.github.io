@@ -183,11 +183,20 @@ for item in education_items:
         
     logo_html = f'<img src="Images/{item["logo_img"]}" alt="{item["institution"]} Logo" style="height: 20px; margin-right: 8px; border-radius: 4px; vertical-align: middle;">' if 'logo_img' in item else ''
     
-    tags_html = ""
-    for t in current_tags:
-        tag_icon_src = tag_icons.get(t)
-        tag_img = f'<img src="Images/BW/{tag_icon_src}" alt="{t}" style="height: 14px; margin-right: 6px; filter: grayscale(1) invert(1) contrast(500%); mix-blend-mode: screen;">' if tag_icon_src else ''
-        tags_html += f'<span class="tag" style="display: inline-flex; align-items: center;">{tag_img}{t}</span>'
+    skills_marquee_html = ""
+    if current_tags:
+        skills_marquee_html += '''
+                        <div class="skills-marquee-container" style="margin-top: 1.5rem;">
+                            <div class="skills-marquee">'''
+        display_skills = current_tags + current_tags
+        for s in display_skills:
+            tag_icon_src = tag_icons.get(s)
+            tag_img = f'<img src="Images/BW/{tag_icon_src}" alt="{s}" style="height: 14px; margin-right: 6px; filter: grayscale(1) invert(1) contrast(500%); mix-blend-mode: screen;">' if tag_icon_src else ''
+            skills_marquee_html += f'''
+                                <span class="skill-pill">{tag_img}{s}</span>'''
+        skills_marquee_html += '''
+                            </div>
+                        </div>'''
     
     timeline_html += f'''
                 <div class="timeline-item fade-up">
@@ -201,10 +210,7 @@ for item in education_items:
                     <div class="timeline-content">
                         <p>{item['description']}</p>
                         {img_html}
-                        <div class="tags" style="margin-top: 1.5rem;">
-                            <span class="tag">{item['type']}</span>
-                            {tags_html}
-                        </div>
+                        {skills_marquee_html}
                     </div>
                 </div>'''
 

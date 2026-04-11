@@ -798,6 +798,63 @@ body.expertise-mode .navbar {
     transform: scale(1);
 }
 
+/* Scrolling Skill Pills */
+.skills-marquee-container {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2rem;
+    position: relative;
+    padding: 0.5rem 0;
+    /* subtle fade on the edges for a polished look */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.skills-marquee {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    /* duplicate content in JS/HTML to make it seamless, animation moves left by half the width */
+    animation: scrollPills 30s linear infinite;
+}
+
+.skills-marquee:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrollPills {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 0.5rem)); /* accounting for gap */
+    }
+}
+
+.skill-pill {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    color: var(--sub);
+    padding: 0.4rem 1.2rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.skill-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(34, 197, 94, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(34, 197, 94, 0.15);
+}
+
 .modal-close {
     position: absolute;
     top: 30px;
