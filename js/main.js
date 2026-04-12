@@ -185,4 +185,110 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 8. UFO Cursor Follower
+    const ufoContainer = document.createElement('div');
+    ufoContainer.id = 'ufo-container';
+
+    const ufoShip = document.createElement('img');
+    ufoShip.src = 'Images/UFO_SHIP.png';
+    ufoShip.id = 'ufo-ship';
+
+    const ufoLight = document.createElement('img');
+    ufoLight.src = 'Images/UFO_LIGHT.png';
+    ufoLight.id = 'ufo-light';
+
+    ufoContainer.appendChild(ufoShip);
+    ufoContainer.appendChild(ufoLight);
+    document.body.appendChild(ufoContainer);
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ufoX = window.innerWidth / 2 + 300; // offset start so we don't instantly abduct
+    let ufoY = window.innerHeight / 2 + 300;
+    let ufoVX = 0;
+    let ufoVY = 0;
+    const maxSpeed = 1; // 5x slower than 5
+    const turnSpeed = 0.05;
+
+    ufoLight.style.opacity = '0'; // ensure it starts totally transparent
+
+    let ufoState = 'CHASING'; // 'CHASING', 'ABDUCTING', 'RELEASING'
+    let releaseStartTime = 0;
+    const FADE_DURATION = 1500; // matches CSS transition
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function updateUfo() {
+        const targetX = mouseX;
+        const targetY = mouseY - 20; // offset target 20px up
+        
+        const dx = targetX - ufoX;
+        const dy = targetY - ufoY;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        
+        // Wobble effect for non-straight flight (reduced amplitude due to slower speed)
+        const time = Date.now() / 200;
+        const wobbleX = Math.cos(time) * 0.5;
+        const wobbleY = Math.sin(time) * 0.5;
+        
+        if (ufoState === 'CHASING') {
+            if (dist <= 15) {
+                ufoState = 'ABDUCTING';
+                ufoLight.style.opacity = '1';
+            } else {
+                // Move towards target
+                const targetVX = (dx / dist) * maxSpeed;
+                const targetVY = (dy / dist) * maxSpeed;
+                
+                // Lerp velocity for smooth turning
+                ufoVX += (targetVX - ufoVX) * turnSpeed;
+                ufoVY += (targetVY - ufoVY) * turnSpeed;
+                
+                ufoX += ufoVX + wobbleX;
+                ufoY += ufoVY + wobbleY;
+                
+                // Face the movement direction slightly
+                const tilt = ufoVX * 2;
+                ufoContainer.style.transform = `translate(-50%, -50%) rotate(${tilt}deg)`;
+            }
+        } else if (ufoState === 'ABDUCTING') {
+            // Reached cursor, decelerate
+            ufoVX *= 0.8;
+            ufoVY *= 0.8;
+            ufoX += ufoVX;
+            ufoY += ufoVY;
+            
+            // Level out when abducting
+            ufoContainer.style.transform = `translate(-50%, -50%) rotate(0deg)`;
+            
+            if (dist > 15) {
+                // Cursor moved away, start releasing and fade out the light
+                ufoState = 'RELEASING';
+                ufoLight.style.opacity = '0';
+                releaseStartTime = Date.now();
+            }
+        } else if (ufoState === 'RELEASING') {
+            // Stay still while releasing light (decelerate to a stop if any velocity remains)
+            ufoVX *= 0.8;
+            ufoVY *= 0.8;
+            ufoX += ufoVX;
+            ufoY += ufoVY;
+            ufoContainer.style.transform = `translate(-50%, -50%) rotate(0deg)`;
+            
+            // Do NOT move until the light is completely vanished
+            if (Date.now() - releaseStartTime >= FADE_DURATION) {
+                ufoState = 'CHASING';
+            }
+        }
+        
+        ufoContainer.style.left = `${ufoX}px`;
+        ufoContainer.style.top = `${ufoY}px`;
+        
+        requestAnimationFrame(updateUfo);
+    }
+    requestAnimationFrame(updateUfo);
 });
