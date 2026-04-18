@@ -40,6 +40,12 @@ html_template = """<!DOCTYPE html>
     <nav class="navbar">
         <div class="navbar-container">
             <a href="index.html" class="logo">Daniel <span class="highlight">Boldrin</span></a>
+            
+            <form action="search.html" method="GET" class="nav-search-form" style="display: flex; flex: 1; max-width: 300px; margin: 0 auto;">
+                <input type="text" name="q" placeholder="Search portfolio..." required style="flex: 1; padding: 8px 15px; border-radius: 20px 0 0 20px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); outline: none;">
+                <button type="submit" style="padding: 8px 16px; border-radius: 0 20px 20px 0; border: none; background: var(--accent); color: #111; font-weight: bold; cursor: pointer; transition: background 0.3s ease;"><i class="fas fa-search"></i></button>
+            </form>
+
             <div class="menu-toggle" id="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
@@ -145,9 +151,11 @@ for line in games_txt.split('\n'):
     else:
         bg_html = ""
     
+    game_tags = " ".join([title, cat, desc]).lower()
+    
     game_items += f'''
                 <!-- Game Item -->
-                <a href="{link}" target="_blank" class="game-block fade-up delay-{(delay % 3) + 1}">
+                <a href="{link}" target="_blank" class="game-block fade-up delay-{(delay % 3) + 1}" data-tags="{game_tags}">
                     {bg_html}
                     <div class="game-content">
                         <span class="game-category">{cat}</span>

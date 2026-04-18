@@ -15,13 +15,6 @@ html_template = """<!DOCTYPE html>
     
     <!-- FontAwesome for icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
-    
-    <style>
-        /* Hidden by default, shown by JS */
-        .searchable-item {
-            display: none;
-        }
-    </style>
 </head>
 <body>
 
@@ -43,6 +36,7 @@ html_template = """<!DOCTYPE html>
             </ul>
         </div>
     </nav>
+    
 
     <div style="height: 100px;"></div> <!-- Spacer for fixed nav -->
 
@@ -66,6 +60,7 @@ html_template = """<!DOCTYPE html>
             <div id="no-results" style="display: none; padding: 40px; text-align: center; border: 1px dashed var(--border); border-radius: 8px;">
                 <h3>No results found</h3>
                 <p style="color: var(--sub);">Try searching for a different skill, company, or role.</p>
+                <div id="did-you-mean-container"></div>
                 <a href="index.html" class="btn btn-outline" style="margin-top: 20px;"><i class="fas fa-arrow-left"></i> Go Back</a>
             </div>
         </div>

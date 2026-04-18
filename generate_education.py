@@ -117,6 +117,12 @@ html_template = """<!DOCTYPE html>
     <nav class="navbar">
         <div class="navbar-container">
             <a href="index.html" class="logo">Daniel <span class="highlight">Boldrin</span></a>
+            
+            <form action="search.html" method="GET" class="nav-search-form" style="display: flex; flex: 1; max-width: 300px; margin: 0 auto;">
+                <input type="text" name="q" placeholder="Search portfolio..." required style="flex: 1; padding: 8px 15px; border-radius: 20px 0 0 20px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); outline: none;">
+                <button type="submit" style="padding: 8px 16px; border-radius: 0 20px 20px 0; border: none; background: var(--accent); color: #111; font-weight: bold; cursor: pointer; transition: background 0.3s ease;"><i class="fas fa-search"></i></button>
+            </form>
+
             <div class="menu-toggle" id="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
@@ -198,8 +204,10 @@ for item in education_items:
                             </div>
                         </div>'''
     
+    all_tags = " ".join([item['title'], item['institution'], item['description']] + item.get('tags', [])).lower()
+    
     timeline_html += f'''
-                <div class="timeline-item fade-up">
+                <div class="timeline-item fade-up" data-tags="{all_tags}">
                     <div class="timeline-header">
                         <div>
                             <h3 class="timeline-role"><i class="fas {item['icon']}" style="margin-right: 10px; color: var(--accent);"></i>{item['title']}</h3>
