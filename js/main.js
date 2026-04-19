@@ -214,8 +214,37 @@ document.addEventListener('DOMContentLoaded', () => {
     ufoLight.style.opacity = '0'; 
 
     let ufoState = 'CHASING'; 
+    let targetElement = null; // Track current hovered link/button
     let releaseStartTime = 0;
     const FADE_DURATION = 1500; 
+
+    // Target Selection Listeners
+    function attachListeners() {
+        document.querySelectorAll('a, button, .btn').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                if (ufoState === 'ABDUCTING') return; // Don't interrupt abduction
+                targetElement = el;
+                if (el.tagName === 'A') {
+                    ufoState = 'HOVERING_LINK';
+                    el.classList.add('link-abducting');
+                } else {
+                    ufoState = 'ORBITING_BUTTON';
+                }
+            });
+            el.addEventListener('mouseleave', () => {
+                if (targetElement === el) {
+                    if (ufoState === 'HOVERING_LINK' || ufoState === 'ORBITING_BUTTON') {
+                        ufoState = 'CHASING';
+                        el.classList.remove('link-abducting');
+                        targetElement = null;
+                        ufoLight.style.opacity = '0';
+                        ufoContainer.style.zIndex = '9999';
+                    }
+                }
+            });
+        });
+    }
+    attachListeners();
 
     const cows = [];
 
@@ -236,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
         cropField.className = 'crop-field';
         cropField.style.position = 'relative'; 
         
-        const tileSize = 20;
         const columns = Math.ceil(window.innerWidth / 16); 
         const rows = 20; 
         const totalTiles = columns * rows; 
@@ -271,17 +299,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updateUfo() {
-        const targetX = mouseX;
-        const targetY = mouseY - 20; 
-        
-        const dx = targetX - ufoX;
-        const dy = targetY - ufoY;
-        const dist = Math.sqrt(dx*dx + dy*dy);
         const time = Date.now() / 200;
         const wobbleX = Math.cos(time) * 0.5;
         const wobbleY = Math.sin(time) * 0.5;
         
+        // Handle States
         if (ufoState === 'CHASING') {
+            const targetX = mouseX;
+            const targetY = mouseY - 20; 
+            const dx = targetX - ufoX;
+            const dy = targetY - ufoY;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+
             if (dist <= 15) {
                 ufoState = 'ABDUCTING';
                 ufoLight.style.opacity = '1';
@@ -294,7 +323,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 ufoY += ufoVY + wobbleY;
                 ufoContainer.style.transform = `translate(-50%, -50%) rotate(${ufoVX * 2}deg)`;
             }
-        } else if (ufoState === 'ABDUCTING') {
+        } 
+        else if (ufoState === 'HOVERING_LINK' && targetElement) {
+            const rect = targetElement.getBoundingClientRect();
+            const targetX = rect.left + rect.width / 2;
+            const targetY = rect.top - 45;
+            ufoX += (targetX - ufoX) * 0.1;
+            ufoY += (targetY - ufoY) * 0.1;
+            ufoLight.style.opacity = '0.5';
+            ufoContainer.style.transform = `translate(-50%, -50%) rotate(0deg)`;
+        }
+        else if (ufoState === 'ORBITING_BUTTON' && targetElement) {
+            const rect = targetElement.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            // MUCH slower and more organic/imperfect orbit
+            const orbitSpeed = 0.4;
+            const orbitRadius = Math.max(rect.width, rect.height) / 2 + 45 + Math.sin(time * 0.2) * 25; // High radius variation
+            const orbitAngle = (time * orbitSpeed) + Math.cos(time * 0.15) * 1.5; // High angle noise
+            const depth = Math.sin(orbitAngle); 
+            
+            const targetOrbitX = centerX + Math.cos(orbitAngle) * orbitRadius;
+            const targetOrbitY = centerY + depth * 30; // Increased vertical tilt
+
+            ufoX += (targetOrbitX - ufoX) * 0.05; // Slower response
+            ufoY += (targetOrbitY - ufoY) * 0.05;
+            
+            const scale = 0.75 + (depth + 1) * 0.25; // Wider scale range (0.75 to 1.25)
+            ufoContainer.style.zIndex = depth > 0 ? '10001' : '9998'; 
+            ufoContainer.style.transform = `translate(-50%, -50%) scale(${scale})`;
+            ufoLight.style.opacity = '0'; // Lights strictly OFF during orbit
+        }
+        else if (ufoState === 'ABDUCTING') {
             ufoVX *= 0.8; ufoVY *= 0.8;
             ufoX += ufoVX; ufoY += ufoVY;
             ufoContainer.style.transform = `translate(-50%, -50%) rotate(0deg)`;
@@ -304,29 +365,45 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cowRect = cowData.element.getBoundingClientRect();
                 const cowCX = cowRect.left + cowRect.width / 2;
                 const cowCY = cowRect.top + cowRect.height / 2;
+                
                 if (Math.sqrt(Math.pow(ufoX - cowCX, 2) + Math.pow(ufoY - cowCY, 2)) < 50) {
                     cowData.levitating = true;
-                    cowData.element.classList.add('cow-levitating');
-                    const originalRect = cowData.element.getBoundingClientRect();
-                    document.body.appendChild(cowData.element);
-                    cowData.element.style.position = 'fixed';
-                    cowData.element.style.left = `${originalRect.left}px`;
-                    cowData.element.style.top = `${originalRect.top}px`;
-                    cowData.element.style.margin = '0';
+                    const el = cowData.element;
+                    
+                    // NEW MULTI-PHASE ABDUCTION
+                    el.classList.add('cow-shaking');
+                    const originalRect = el.getBoundingClientRect();
+                    document.body.appendChild(el);
+                    el.style.position = 'fixed';
+                    el.style.left = `${originalRect.left}px`;
+                    el.style.top = `${originalRect.top}px`;
+                    el.style.margin = '0';
+                    el.style.zIndex = '10000';
+
+                    // Phase 1: Shake for 0.5s, then start lift
                     setTimeout(() => {
-                        cowData.element.style.left = `${ufoX - 20}px`;
-                        cowData.element.style.top = `${ufoY - 10}px`;
-                        cowData.element.style.transform = 'scale(0.1) rotate(720deg)';
-                        cowData.element.style.opacity = '0';
-                    }, 50);
-                    setTimeout(() => { cowData.abducted = true; cowData.element.remove(); }, 2020);
+                        el.classList.remove('cow-shaking');
+                        el.style.transition = 'top 1.5s cubic-bezier(0.55, 0.055, 0.675, 0.19), left 1.5s ease-in, transform 1.5s ease-in, opacity 1.5s ease-in';
+                        el.style.left = `${ufoX - 20}px`;
+                        el.style.top = `${ufoY - 20}px`;
+                        el.style.transform = 'scale(0.1) rotate(1080deg)';
+                        el.style.opacity = '0';
+                    }, 600);
+
+                    setTimeout(() => { 
+                        cowData.abducted = true; 
+                        el.remove(); 
+                    }, 2200);
                 }
             });
             
-            if (dist > 15) {
+            const dx = mouseX - ufoX;
+            const dy = (mouseY - 20) - ufoY;
+            if (Math.sqrt(dx*dx + dy*dy) > 15) {
                 ufoState = 'RELEASING';
                 ufoLight.style.opacity = '0';
                 releaseStartTime = Date.now();
+                ufoContainer.style.zIndex = '9999';
             }
         } else if (ufoState === 'RELEASING') {
             ufoVX *= 0.8; ufoVY *= 0.8;
