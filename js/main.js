@@ -334,7 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ufoVY += (targetVY - ufoVY) * turnSpeed;
                 ufoX += ufoVX + wobbleX;
                 ufoY += ufoVY + wobbleY;
-                ufoContainer.style.transform = `translate(-50%, -50%) rotate(${ufoVX * 2}deg)`;
+                ufoContainer.style.transform = `translate(-50%, -50%) rotate(${ufoVX * 15}deg)`;
 
                 // Lights OFF while chasing
                 ufoLight.style.opacity = 0;
@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else if (ufoState === 'ABDUCTING' || ufoState === 'SETTLING') {
             ufoVX *= 0.8; ufoVY *= 0.8;
             ufoX += ufoVX; ufoY += ufoVY;
-            ufoContainer.style.transform = `translate(-50%, -50%) rotate(0deg)`;
+            ufoContainer.style.transform = `translate(-50%, -50%) rotate(${ufoVX * 15}deg)`;
             ufoLight.style.opacity = 0.5;
 
             cows.forEach(cowData => {
@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else if (ufoState === 'RELEASING') {
             ufoVX *= 0.8; ufoVY *= 0.8;
             ufoX += ufoVX; ufoY += ufoVY;
-            ufoContainer.style.transform = `translate(-50%, -50%) rotate(0deg)`;
+            ufoContainer.style.transform = `translate(-50%, -50%) rotate(${ufoVX * 15}deg)`;
             if (Date.now() - releaseStartTime >= FADE_DURATION) ufoState = 'CHASING';
         }
         else {
