@@ -1101,4 +1101,35 @@ body.expertise-mode .navbar {
     50% { transform: translateX(0) rotate(0); }
     75% { transform: translateX(2px) rotate(1deg); }
     100% { transform: translateX(0) rotate(0); }
+}
+
+/* --- UFO MULTIPLAYER STYLES --- */
+.ufo-container-other {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9000; /* slightly behind local UFO */
+    transform: translate(-50%, -50%);
+    width: 120px;
+    filter: hue-rotate(135deg) opacity(0.85); /* distinct color & translucent */
+    transition: opacity 0.5s ease;
+}
+
+.ufo-ship-other {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.ufo-light-other {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: opacity 0.2s ease;
+}
+
+.ufo-other-fade-out {
+    opacity: 0 !important;
 }
