@@ -713,8 +713,12 @@ body.expertise-mode .navbar {
 
 .social-link:hover {
     background-color: var(--accent);
-    color: #000;
     transform: translateY(-5px);
+}
+
+.social-link:hover i,
+.social-link:hover svg {
+    color: #0d1117 !important; /* Ensure icon is dark and visible on green background */
 }
 
 .copyright {
@@ -944,18 +948,9 @@ body.expertise-mode .navbar {
 #ufo-container {
     position: fixed;
     pointer-events: none;
-    z-index: 9999;
+    z-index: 10000;
     transform: translate(-50%, -50%);
-    width: 120px;
-}
-
-/* UFO Follower */
-#ufo-container {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    width: 120px;
+    width: 120px; /* Reverted to original size */
 }
 
 #ufo-ship {
@@ -972,7 +967,7 @@ body.expertise-mode .navbar {
     height: 100%;
     object-fit: contain;
     opacity: 0;
-    transition: opacity 1.5s ease;
+    transition: opacity 0.3s ease;
 }
 
 /* Cow and Abduction */
