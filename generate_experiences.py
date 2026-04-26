@@ -63,7 +63,7 @@ experiences = [
         "skills": ["Unity", "C#", "VR", "AR", "OpenXR", "WaveXR", "Addressables", "MVC", "Medical Simulations", "Microbiology", "VAPOC", "Blood Transfusion", "CI/CD", "Android", "iOS", "ScriptableObjects", "Profiling", "Multiplayer Systems", "Asana", "Teams", "Github", "Security / Data Privacy", "Audit Logging"]
     },
     {
-        "role": "Unity game programing teacher",
+        "role": "Unity game programming teacher",
         "company": "Halton STEM Club",
         "date": "Jun 2021 - Jun 2022",
         "location": "Toronto, Ontario, Canada · Remote (Permanent Part-time)",
@@ -73,7 +73,7 @@ experiences = [
         "skills": ["Teaching", "Unity", "C#", "Animation", "3D Modeling", "Python", "Scratch", "Technical Drawing", "Curriculum Design", "Mentorship"]
     },
     {
-        "role": "Unity game programing teacher",
+        "role": "Unity game programming teacher",
         "company": "Wells Academy",
         "date": "Mar 2021 - Feb 2022",
         "location": "Toronto, Ontario, Canada · Remote (Contract Part-time)",
@@ -83,7 +83,7 @@ experiences = [
         "skills": ["Teaching", "Unity", "C#", "Animation", "3D Modeling", "Python", "Alison", "Technical Drawing", "Curriculum Design", "Mentorship"]
     },
     {
-        "role": "Unity game programing teacher",
+        "role": "Unity game programming teacher",
         "company": "Thinnox 360",
         "date": "Jul 2018 - Nov 2020",
         "location": "Greater Toronto Area, Canada (Contract Part-time)",
