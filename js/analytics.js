@@ -25,24 +25,18 @@ async function trackVisitor() {
             utm_medium: urlParams.get('utm_medium'),
             utm_campaign: urlParams.get('utm_campaign')
         };
-        
-        // Debug: Log payload before sending
-        console.log('[Analytics] Visitor payload:', payload);
-        
+
         // 3. Send to Edge Function (Server handles IP and Geo)
         const response = await fetch(FUNCTION_URL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(payload),
-            mode: 'cors'
+            body: JSON.stringify(payload)
         });
-        
+
         if (!response.ok) {
-            console.error('Visitor tracking failed:', response.status, await response.text());
-        } else {
-            console.log('[Analytics] Visitor tracking succeeded, status:', response.status);
+            console.error('Visitor tracking failed:', await response.text());
         }
     } catch (err) {
         console.error('Visitor tracking error:', err);
