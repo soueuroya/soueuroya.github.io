@@ -41,8 +41,8 @@ html_template = """<!DOCTYPE html>
         <div class="navbar-container">
             <a href="index.html" class="logo">Daniel <span class="highlight">Boldrin</span></a>
             
-            <form action="search.html" method="GET" class="nav-search-form" style="display: flex; flex: 1; max-width: 300px; margin: 0 auto;">
-                <input type="text" name="q" placeholder="Search portfolio..." required style="flex: 1; padding: 8px 15px; border-radius: 20px 0 0 20px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); outline: none;">
+            <form action="search.html" method="GET" class="nav-search-form desktop-search" style="display: flex; flex: 1; max-width: 300px; margin: 0 auto;">
+                <input type="text" name="q" placeholder="Search for skills, games, roles, companies..." required style="flex: 1; padding: 8px 15px; border-radius: 20px 0 0 20px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); outline: none;">
                 <button type="submit" style="padding: 8px 16px; border-radius: 0 20px 20px 0; border: none; background: var(--accent); color: #111; font-weight: bold; cursor: pointer; transition: background 0.3s ease;"><i class="fas fa-search"></i></button>
             </form>
 
@@ -50,7 +50,18 @@ html_template = """<!DOCTYPE html>
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html" class="nav-link"><i class="fas fa-arrow-left"></i> Back to Home</a></li>
+                <li class="mobile-search">
+                    <form action="search.html" method="GET" class="nav-search-form" style="display: flex; flex: 1; max-width: 300px; margin: 0 auto;">
+                        <input type="text" name="q" placeholder="Search for skills, games, roles, companies..." required style="flex: 1; padding: 8px 15px; border-radius: 20px 0 0 20px; border: 1px solid var(--border); background: rgba(255,255,255,0.05); color: var(--text); outline: none;">
+                        <button type="submit" style="padding: 8px 16px; border-radius: 0 20px 20px 0; border: none; background: var(--accent); color: #111; font-weight: bold; cursor: pointer; transition: background 0.3s ease;"><i class="fas fa-search"></i></button>
+                    </form>
+                </li>
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="experiences.html" class="nav-link">Experience</a></li>
+                <li><a href="education.html" class="nav-link">Education</a></li>
+                <li><a href="games.html" class="nav-link">Games</a></li>
+                <li><a href="ai-workflow.html" class="nav-link">AI Workflow</a></li>
+                <li><a href="Daniel Boldrin - Resume.pdf" target="_blank" class="nav-button">Resume <i class="fas fa-download"></i></a></li>
             </ul>
         </div>
     </nav>
@@ -61,9 +72,8 @@ html_template = """<!DOCTYPE html>
     <section class="section section-alt" id="games">
         <div class="container">
             <h2 class="fade-up">All Games & Prototypes</h2>
-            <p class="fade-up" style="max-width: 600px; margin-bottom: 3rem;">
-                A complete catalog of my shipped titles, prototypes, game jams, and open-source Unity frameworks. 
-                For playable builds, visit my <a href="https://danielboldrin.itch.io/" target="_blank" class="highlight">Itch.io profile</a>.
+            <p class="fade-up" style="max-width: 800px; margin-bottom: 3rem; font-size: clamp(0.95rem, 2vw, 1.1rem); line-height: 1.6;">
+                A complete catalog of my shipped titles, prototypes, game jams, and open-source Unity frameworks. For playable builds, visit my <a href="https://danielboldrin.itch.io/" target="_blank" class="highlight">Itch.io profile</a>.
             </p>
             
             <div class="game-grid">
